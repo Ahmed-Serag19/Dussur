@@ -1,88 +1,88 @@
+"use client";
 import React from "react";
 import { HeroParallax } from "@/components/ui/hero-parallax";
-import Image from "next/image";
 import Deraman from "@/public/images/deraman.jpg";
 import Darebty from "@/public/images/darebty.jpg";
 import DWash from "@/public/images/dwash.jpg";
 import Gene from "@/public/images/gene.jpg";
 import Tawajad from "@/public/images/tawajad.jpg";
 import OurProjects from "@/public/images/projects.jpg";
+import ApplyIdea from "@/public/images/apply-idea.jpg";
+import DeliverIdea from "@/public/images/deliver-idea.jpg";
+import Change from "@/public/images/change.jpg";
+import CreateIdea from "@/public/images/create-idea.jpg";
+import SaudiVision from "@/public/images/saudi-vision.jpg";
 
 const products = [
   {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
+    title: "Our Projects",
+    link: "1",
     thumbnail: OurProjects,
   },
   {
-    title: "Cursor",
-    link: "https://cursor.so",
-    thumbnail: Darebty,
+    title: "Saudi Vision",
+    link: "3",
+    thumbnail: SaudiVision,
   },
   {
-    title: "Rogue",
-    link: "https://userogue.com",
-    thumbnail: Deraman,
+    title: "Our Projects",
+    link: "2",
+    thumbnail: OurProjects,
   },
   {
-    title: "Editorially",
-    link: "https://editorially.org",
+    title: "DWash",
+    link: "4",
     thumbnail: DWash,
   },
   {
-    title: "Editrix AI",
-    link: "https://editrix.ai",
+    title: "Tawajad",
+    link: "5",
     thumbnail: Tawajad,
   },
   {
-    title: "Pixel Perfect",
-    link: "https://app.pixelperfect.quest",
-    thumbnail: Deraman,
-  },
-  {
-    title: "Algochurn",
-    link: "https://algochurn.com",
+    title: "Gene",
+    link: "6",
     thumbnail: Gene,
   },
   {
-    title: "Aceternity UI",
-    link: "https://ui.aceternity.com",
-    thumbnail: Deraman,
+    title: "Create an idea",
+    link: "7",
+    thumbnail: CreateIdea,
   },
   {
-    title: "Tailwind Master Kit",
-    link: "https://tailwindmasterkit.com",
-    thumbnail: Tawajad,
+    title: "Chance for your idea to grow",
+    link: "8",
+    thumbnail: Change,
   },
   {
-    title: "SmartBridge",
-    link: "https://smartbridgetech.com",
-    thumbnail: Darebty,
+    title: "Apply Idea",
+    link: "9",
+    thumbnail: ApplyIdea,
   },
   {
-    title: "Renderwork Studio",
-    link: "https://renderwork.studio",
-    thumbnail: OurProjects,
-  },
-  {
-    title: "Creme Digital",
-    link: "https://cremedigital.com",
+    title: "Gene",
+    link: "10",
     thumbnail: Gene,
   },
   {
-    title: "Golden Bells Academy",
-    link: "https://goldenbellsacademy.com",
+    title: "Deraman",
+    link: "11",
     thumbnail: Deraman,
   },
   {
-    title: "Invoker Labs",
-    link: "https://invoker.lol",
+    title: "Darebty",
+    link: "12",
     thumbnail: Darebty,
   },
   {
-    title: "E Free Invoice",
-    link: "https://efreeinvoice.com",
-    thumbnail: Tawajad,
+    title: "We Deliver it ",
+    link: "13",
+    thumbnail: DeliverIdea,
+  },
+  {
+    title: "Gene",
+    link: "14",
+    thumbnail: Gene,
   },
 ];
 

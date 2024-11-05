@@ -7,8 +7,8 @@ import {
   useSpring,
   MotionValue,
 } from "framer-motion";
-import Image, { StaticImageData } from "next/image"; // Import StaticImageData
-import Link from "next/link";
+import Image, { StaticImageData } from "next/image";
+import { TypewriterEffectSmooth } from "./typewriter-effect";
 
 export const HeroParallax = ({
   products,
@@ -16,7 +16,7 @@ export const HeroParallax = ({
   products: {
     title: string;
     link: string;
-    thumbnail: StaticImageData; // Update to StaticImageData
+    thumbnail: StaticImageData;
   }[];
 }) => {
   const firstRow = products.slice(0, 5);
@@ -74,7 +74,7 @@ export const HeroParallax = ({
             <ProductCard
               product={product}
               translate={translateX}
-              key={product.title}
+              key={product.link}
             />
           ))}
         </motion.div>
@@ -83,7 +83,7 @@ export const HeroParallax = ({
             <ProductCard
               product={product}
               translate={translateXReverse}
-              key={product.title}
+              key={product.link}
             />
           ))}
         </motion.div>
@@ -92,7 +92,7 @@ export const HeroParallax = ({
             <ProductCard
               product={product}
               translate={translateX}
-              key={product.title}
+              key={product.link}
             />
           ))}
         </motion.div>
@@ -102,16 +102,39 @@ export const HeroParallax = ({
 };
 
 export const Header = () => {
+  const words = [
+    {
+      text: "Get",
+    },
+    {
+      text: "Started",
+    },
+    {
+      text: "With",
+    },
+
+    {
+      text: "Dussur.",
+      className: "text-blue-700 dark:text-blue-600",
+    },
+  ];
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-        The Ultimate <br /> development studio
+    <div className="max-w-7xl relative mx-auto py-16 md:py-32 px-6 w-full">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
+        Welcome to Dussur
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        We build beautiful products with the latest technologies and frameworks.
-        We are a team of passionate developers and designers that love to build
-        amazing products.
+      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-gray-100 mt-4">
+        Your Partner in Innovation and Technological Excellence
+      </h2>
+      <p className="max-w-xl sm:max-w-2xl text-sm sm:text-base md:text-lg lg:text-xl mt-4 md:mt-6 text-white">
+        Empowering your business with customized, forward-thinking technology
+        solutions. We specialize in developing scalable, secure, and efficient
+        products to meet the unique needs of our clients in both government and
+        enterprise sectors.
       </p>
+      <div className="mt-6 sm:mt-8 py-2  sm:py-3 text-white text-sm sm:text-base md:text-lg font-medium rounded-lg  ease-in-out">
+        <TypewriterEffectSmooth words={words} />
+      </div>
     </div>
   );
 };
@@ -136,23 +159,18 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
+      className="group/product h-80 w-[30rem] relative flex-shrink-0"
     >
-      <Link
-        href={product.link}
-        className="block group-hover/product:shadow-2xl"
-      >
+      <div className="block group-hover/product:shadow-lg">
         <Image
           src={product.thumbnail}
           height="600"
           width="600"
-          className="absolute inset-0 h-full w-full"
+          className="absolute inset-0 h-full w-full  object-right object-cover"
           alt={product.title}
-          objectFit="contain"
-          objectPosition="center"
         />
-      </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
+      </div>
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-60 bg-black pointer-events-none"></div>
       <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
         {product.title}
       </h2>
