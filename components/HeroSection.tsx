@@ -88,7 +88,7 @@ const products = [
 
 const HeroSection = () => {
   return (
-    <div className="h-full">
+    <div className="h-full z-10">
       <HeroParallax products={products} />
     </div>
   );
