@@ -132,7 +132,7 @@ export const Header = () => {
         products to meet the unique needs of our clients in both government and
         enterprise sectors.
       </p>
-      <div className="mt-6 sm:mt-8 py-2 sm:py-3 text-[var(--text-primary)] text-sm sm:text-base md:text-lg font-medium rounded-lg ease-in-out">
+      <div className="mt-6 sm:mt-8 py-2 sm:py-3 text-[var(--text-primary)] text-md sm:text-md md:text-lg font-medium rounded-lg ease-in-out">
         <TypewriterEffectSmooth words={words} />
       </div>
     </div>
