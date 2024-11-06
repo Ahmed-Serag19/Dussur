@@ -115,7 +115,7 @@ export const Header = () => {
 
     {
       text: "Dussur.",
-      className: "text-blue-500 dark:text-blue-500",
+      className: "text-blue-600 dark:text-blue-600",
     },
   ];
   return (
