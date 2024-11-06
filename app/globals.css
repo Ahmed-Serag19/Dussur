@@ -11,7 +11,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
     --primary: 0 0% 9%;
-    --primary-blue: #153764;
+    --primary-blue: #d8d8d8;
     --primary-foreground: 0 0% 98%;
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
@@ -30,10 +30,8 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-
-    /* Link colors for light mode */
     --link-color: var(--foreground);
-    --underline-color: rgb(177, 211, 255);
+    --underline-color: rgb(0, 110, 255);
   }
 
   .dark {
@@ -61,8 +59,7 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-
-    /* Link colors for dark mode */
+    --primary-blue: #153764;
     --link-color: var(--foreground);
     --underline-color: #d6e8fc; /* Light blue for dark mode */
   }
@@ -71,39 +68,35 @@
 @layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
   }
 }
 
-/* Navbar styles */
 .navbar {
   background-color: transparent;
   transition: background-color 0.4s ease-in-out;
 }
 
-/* Navbar style when scrolled */
 .navbar-scrolled {
   background-color: var(--primary-blue);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
-/* Navbar link styles with hover effect */
 .nav-link {
   color: var(--link-color);
   transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
   font-size: 1rem;
   text-decoration: none;
-  margin-top: 1em;
   display: inline-block;
   padding: 0.5em;
   margin-left: -0.5em;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 
-  /* Underline effect */
   &:before,
   &:after {
     position: absolute;

@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ModeToggle } from "./theme-toggler";
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const { resolvedTheme } = useTheme();
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50); // Adjust scroll threshold as needed
@@ -24,14 +26,23 @@ export default function Navbar() {
     >
       <nav className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-3">
-          <Image
-            src="/images/logo.png"
-            width={100}
-            height={40}
-            alt="Company Logo"
-          />
+          {resolvedTheme === "dark" ? (
+            <Image
+              src="/images/darkmode-logo.png"
+              width={100}
+              height={40}
+              alt="Company Logo Dark"
+            />
+          ) : (
+            <Image
+              src="/images/lightmode-logo-removebg-preview.png"
+              width={100}
+              height={40}
+              alt="Company Logo Light"
+            />
+          )}
         </Link>
-        <ul className="hidden md:flex space-x-8">
+        <ul className="hidden md:flex space-x-8 ">
           <li>
             <Link href="#home" className="nav-link">
               Home
@@ -58,6 +69,7 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
+        <ModeToggle />
       </nav>
     </header>
   );

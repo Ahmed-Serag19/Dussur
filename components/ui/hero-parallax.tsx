@@ -120,19 +120,19 @@ export const Header = () => {
   ];
   return (
     <div className="max-w-7xl relative mx-auto py-16 md:py-32 px-6 w-full">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-[var(--text-primary)] leading-tight">
         Welcome to Dussur
       </h1>
-      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-gray-100 mt-4">
+      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-[var(--text-secondary)] mt-4">
         Your Partner in Innovation and Technological Excellence
       </h2>
-      <p className="max-w-xl sm:max-w-2xl text-sm sm:text-base md:text-lg lg:text-xl mt-4 md:mt-6 text-white">
+      <p className="max-w-xl sm:max-w-2xl text-sm sm:text-base md:text-lg lg:text-xl mt-4 md:mt-6 text-[var(--text-primary)]">
         Empowering your business with customized, forward-thinking technology
         solutions. We specialize in developing scalable, secure, and efficient
         products to meet the unique needs of our clients in both government and
         enterprise sectors.
       </p>
-      <div className="mt-6 sm:mt-8 py-2  sm:py-3 text-white text-sm sm:text-base md:text-lg font-medium rounded-lg  ease-in-out">
+      <div className="mt-6 sm:mt-8 py-2 sm:py-3 text-[var(--text-primary)] text-sm sm:text-base md:text-lg font-medium rounded-lg ease-in-out">
         <TypewriterEffectSmooth words={words} />
       </div>
     </div>
