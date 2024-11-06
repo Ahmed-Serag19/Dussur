@@ -84,6 +84,11 @@ const products = [
     link: "14",
     thumbnail: Gene,
   },
+  {
+    title: "Deraman",
+    link: "15",
+    thumbnail: Deraman,
+  },
 ];
 
 const HeroSection = () => {
