@@ -9,9 +9,10 @@ import { useTheme } from "next-themes";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { resolvedTheme } = useTheme();
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50); // Adjust scroll threshold as needed
+      setIsScrolled(window.scrollY > 50); // Adjust scroll threshold for transition
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -21,7 +22,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "navbar-scrolled" : "navbar"
+        isScrolled ? "bg-[var(--primary-blue)] shadow-md" : "bg-transparent"
       }`}
     >
       <nav className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
@@ -42,7 +43,7 @@ export default function Navbar() {
             />
           )}
         </Link>
-        <ul className="hidden md:flex space-x-8 ">
+        <ul className="hidden md:flex space-x-8">
           <li>
             <Link href="#home" className="nav-link">
               Home
@@ -69,7 +70,15 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-        <ModeToggle />
+        <div className="flex items-center space-x-4">
+          <ModeToggle />
+          <button
+            // onClick={toggleLocale}
+            className="text-sm font-semibold hover:underline transition"
+          >
+            {/* {locale === "ar" ? "EN" : "AR"} */}
+          </button>
+        </div>
       </nav>
     </header>
   );

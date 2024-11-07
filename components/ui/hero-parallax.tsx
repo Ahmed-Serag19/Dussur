@@ -58,7 +58,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[320vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -138,7 +138,6 @@ export const Header = () => {
     </div>
   );
 };
-
 export const ProductCard = ({
   product,
   translate,
@@ -146,7 +145,7 @@ export const ProductCard = ({
   product: {
     title: string;
     link: string;
-    thumbnail: StaticImageData; // Update to StaticImageData
+    thumbnail: StaticImageData;
   };
   translate: MotionValue<number>;
 }) => {
@@ -159,14 +158,14 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-80 w-[30rem] relative flex-shrink-0"
+      className="group/product h-72 w-full sm:h-80 sm:w-[20rem] md:h-80 md:w-[25rem] lg:w-[30rem] relative flex-shrink-0"
     >
       <div className="block group-hover/product:shadow-lg">
         <Image
           src={product.thumbnail}
-          height="600"
-          width="600"
-          className="absolute inset-0 h-full w-full  object-right object-cover"
+          layout="fill" // Makes the image take up the entire container
+          objectFit="cover" // Ensures image covers container, maintaining aspect ratio
+          className="absolute inset-0 h-full w-full object-cover"
           alt={product.title}
         />
       </div>

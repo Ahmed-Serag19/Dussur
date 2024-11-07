@@ -74,7 +74,14 @@
     @apply bg-background text-foreground;
   }
 }
+[dir="rtl"] .text-left {
+  text-align: right;
+}
 
+[dir="rtl"] .ml-auto {
+  margin-right: auto;
+  margin-left: 0;
+}
 .navbar {
   background-color: transparent;
   transition: background-color 0.4s ease-in-out;
