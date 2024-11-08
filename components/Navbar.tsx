@@ -14,6 +14,7 @@ export default function Navbar() {
   const locale = useLocale();
   const router = useRouter();
   const t = useTranslations();
+  const dir = locale === "ar" ? "rtl" : "ltr"; // Determine text direction based on locale
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +36,7 @@ export default function Navbar() {
   };
   return (
     <header
+      dir={dir}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-[var(--primary-blue)] shadow-md" : "bg-transparent"
       }`}

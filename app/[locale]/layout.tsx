@@ -25,17 +25,15 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { locale: string | undefined };
 }) {
-  const locale = params.locale; // Destructure `locale` after accessing params
-  const messages = await getMessages({ locale });
+  // Destructure `locale` after accessing params
+  const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <NextIntlClientProvider locale={locale} messages={messages}>
+    <html lang="ar">
+      <NextIntlClientProvider messages={messages}>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
