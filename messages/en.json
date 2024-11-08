@@ -1,4 +1,9 @@
 {
+  "home": "Home",
+  "about": "About",
+  "services": "Services",
+  "pricing": "Pricing",
+  "contact": "Contact",
   "words": ["Get", "Started", "With", "Dussur."],
   "welcomeMessage": "Welcome to Dussur",
   "subheading": "Your Partner in Innovation and Technological Excellence",

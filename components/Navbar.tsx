@@ -5,10 +5,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { ModeToggle } from "./theme-toggler";
 import { useTheme } from "next-themes";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { resolvedTheme } = useTheme();
+  const locale = useLocale();
+  const router = useRouter();
+  const t = useTranslations();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +24,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleLocale = () => {
+    const newLocale = locale === "ar" ? "en" : "ar";
+
+    // Strip out the current locale prefix if it's in the URL
+    const currentPath = window.location.pathname.replace(/^\/(ar|en)/, "");
+
+    // Redirect to the path with the new locale prefix
+    router.push(`/${newLocale}${currentPath}`);
+  };
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -43,40 +57,40 @@ export default function Navbar() {
             />
           )}
         </Link>
-        <ul className="hidden md:flex space-x-8">
+        <ul className="hidden md:flex gap-7">
           <li>
             <Link href="#home" className="nav-link">
-              Home
+              {t("home")}
             </Link>
           </li>
           <li>
             <Link href="#about" className="nav-link">
-              About
+              {t("about")}
             </Link>
           </li>
           <li>
             <Link href="#services" className="nav-link">
-              Services
+              {t("services")}
             </Link>
           </li>
           <li>
             <Link href="#pricing" className="nav-link">
-              Pricing
+              {t("pricing")}
             </Link>
           </li>
           <li>
             <Link href="#contact" className="nav-link">
-              Contact
+              {t("contact")}
             </Link>
           </li>
         </ul>
         <div className="flex items-center space-x-4">
           <ModeToggle />
           <button
-            // onClick={toggleLocale}
+            onClick={toggleLocale}
             className="text-sm font-semibold hover:underline transition"
           >
-            {/* {locale === "ar" ? "EN" : "AR"} */}
+            {locale === "ar" ? "EN" : "AR"}
           </button>
         </div>
       </nav>
