@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 
 const World = dynamic(() => import("./ui/globe").then((m) => m.World), {
   ssr: false,
@@ -178,7 +178,6 @@ export function GlobeDemo() {
       color: colors[Math.floor(Math.random() * (colors.length - 1))],
     },
   ];
-  const locale = useLocale();
   const t = useTranslations();
   return (
     <div className="flex flex-row items-center justify-center py-10 h-screen md:h-auto bg-[hsl(var(--background))] dark:bg-[#0a0a0a] relative w-full">
