@@ -37,11 +37,11 @@ export default function Navbar() {
   return (
     <header
       dir={dir}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`sticky top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-[var(--primary-blue)] shadow-md" : "bg-transparent"
       }`}
     >
-      <nav className="max-w-screen-xl mx-auto p-4 flex items-center justify-between">
+      <nav className="max-w-screen-xl  mx-auto p-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-3">
           {resolvedTheme === "dark" ? (
             <Image
@@ -86,7 +86,7 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center gap-4">
           <ModeToggle />
           <button
             onClick={toggleLocale}

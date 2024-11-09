@@ -33,21 +33,21 @@ export default async function RootLayout({
 
   return (
     <html lang="ar">
-      <NextIntlClientProvider messages={messages}>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
+          <NextIntlClientProvider messages={messages}>
             <Navbar />
             {children}
-          </ThemeProvider>
-        </body>
-      </NextIntlClientProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

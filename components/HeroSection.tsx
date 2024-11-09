@@ -12,6 +12,7 @@ import DeliverIdea from "@/public/images/deliver-idea.jpg";
 import Change from "@/public/images/change.jpg";
 import CreateIdea from "@/public/images/create-idea.jpg";
 import SaudiVision from "@/public/images/saudi-vision.jpg";
+import { GlobeDemo } from "./GlobeComponent";
 
 const products = [
   {
@@ -95,6 +96,7 @@ const HeroSection = () => {
   return (
     <div className="z-10">
       <HeroParallax products={products} />
+      <GlobeDemo />
     </div>
   );
 };

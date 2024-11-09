@@ -170,7 +170,7 @@ export const ProductCard = ({
           src={product.thumbnail}
           width={600}
           height={600}
-          objectFit="cover" // Ensures image covers container, maintaining aspect ratio
+          style={{ objectFit: "cover" }}
           className="absolute inset-0 h-full w-full object-cover"
           alt={product.title}
         />
