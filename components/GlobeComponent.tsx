@@ -253,7 +253,7 @@ export function GlobeDemo() {
 
   const t = useTranslations();
   return (
-    <div className="flex flex-row items-center justify-center py-10 h-screen md:h-auto bg-[hsl(var(--background))] dark:bg-[#0a0a0a] relative w-full">
+    <div className="flex flex-row items-center justify-center pt-10 pb-5 h-screen md:h-auto bg-[hsl(var(--background))] dark:bg-[#0a0a0a] relative w-full">
       <div className="max-w-7xl mx-auto w-full relative overflow-x-hidden overflow-y-hidden h-2/3 md:h-[40rem] sm:h-[20rem] px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
