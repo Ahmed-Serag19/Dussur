@@ -53,7 +53,7 @@ export const WhyDusser = () => {
         <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             Our Vision:
-          </span>{" "}
+          </span>
           To create a revolution in the digital landscape through innovative
           programming solutions. We aspire to be a global leader in the IT
           industry by setting new benchmarks for excellence and customer
@@ -62,7 +62,7 @@ export const WhyDusser = () => {
         <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed mt-4">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
             Our Mission:
-          </span>{" "}
+          </span>
           To provide top-tier IT services, including development and beyond,
           tailored to meet the unique needs of our clients. We aim to offer
           seamless, scalable, and sustainable solutions that drive efficiency
@@ -95,12 +95,12 @@ export const WhyDusserAr = () => {
       {/* Text */}
       <div>
         <h3 className="text-red-600 font-bold text-2xl md:text-3xl py-7">
-          الرؤية والرسالة
+          الرؤية و الرسالة
         </h3>
         <p className="text-neutral-600 dark:text-neutral-200 text-base md:text-xl font-sans py-3 leading-relaxed">
           <span className="font-bold text-neutral-700 dark:text-blue-400">
             رؤيتنا:
-          </span>{" "}
+          </span>
           هي إحداث ثورة في المشهد الرقمي من خلال حلول برمجية مبتكرة. نطمح إلى أن
           نكون شركة رائدة عالميًا في صناعة تكنولوجيا المعلومات، ووضع معايير
           جديدة للتميز ورضا العملاء.
@@ -108,7 +108,7 @@ export const WhyDusserAr = () => {
         <p className="text-neutral-600 dark:text-neutral-200 text-base md:text-xl font-sans leading-relaxed mt-4">
           <span className="font-bold text-neutral-700 dark:text-blue-400">
             رسالتنا:
-          </span>{" "}
+          </span>
           هي تقديم خدمات تكنولوجيا معلومات من الدرجة الأولى تشمل التطوير وغيرها،
           ومصممة خصيصًا لتلبية الاحتياجات الفريدة لعملائنا. نحن نهدف إلى توفير
           حلول برمجية سلسة وقابلة للتطوير ومستدامة تدفع الكفاءة والنمو. نسعى إلى
@@ -132,7 +132,7 @@ const DummyContent = () => {
             <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
               <span className="font-bold text-neutral-700 dark:text-neutral-200">
                 The first rule of Apple club is that you boast about Apple club.
-              </span>{" "}
+              </span>
               Keep a journal, quickly jot down a grocery list, and take amazing
               class notes. Want to convert those notes to text? No problem.
               Langotiya jeetu ka mara hua yaar is ready to capture every
