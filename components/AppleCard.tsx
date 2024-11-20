@@ -67,8 +67,8 @@ export const WhyDusser = () => {
           tailored to meet the unique needs of our clients. We aim to offer
           seamless, scalable, and sustainable solutions that drive efficiency
           and growth. Our commitment is to build long-term partnerships that
-          contribute to our clients' success through quality, innovation, and a
-          client-focused approach.
+          contribute to our client&lsquo;s success through quality, innovation,
+          and a client-focused approach.
         </p>
       </div>
     </div>
@@ -95,7 +95,7 @@ export const WhyDusserAr = () => {
       {/* Text */}
       <div>
         <h3 className="text-red-600 font-bold text-2xl md:text-3xl py-7">
-          الرؤية والرسالة
+          الرؤية و الرسالة
         </h3>
         <p className="text-neutral-600 dark:text-neutral-200 text-base md:text-xl font-sans py-3 leading-relaxed">
           <span className="font-bold text-neutral-700 dark:text-blue-400">
