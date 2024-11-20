@@ -90,7 +90,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     <CarouselContext.Provider
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
-      <div className="relative w-full">
+      <div className="relative w-full" dir="ltr">
         <div
           className="flex w-full overflow-x-scroll overscroll-x-auto py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
           ref={carouselRef}
@@ -164,7 +164,7 @@ export const Card = ({
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { onCardClose, currentIndex } = useContext(CarouselContext);
+  const { onCardClose } = useContext(CarouselContext);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -195,7 +195,7 @@ export const Card = ({
   };
 
   return (
-    <>
+    <div>
       <AnimatePresence>
         {open && (
           <div className="fixed inset-0 h-screen z-50 overflow-auto">
@@ -263,7 +263,7 @@ export const Card = ({
           className="object-cover absolute z-10 inset-0"
         />
       </motion.button>
-    </>
+    </div>
   );
 };
 
