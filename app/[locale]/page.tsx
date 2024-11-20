@@ -1,3 +1,4 @@
+import AboutUs from "@/components/AboutUs";
 import HeroSection from "@/components/HeroSection";
 import { useLocale } from "next-intl";
 
@@ -8,6 +9,7 @@ export default function Home() {
     <>
       <div className="w-full h-fit overflow-x-hidden" dir={dir}>
         <HeroSection />
+        <AboutUs />
       </div>
     </>
   );
