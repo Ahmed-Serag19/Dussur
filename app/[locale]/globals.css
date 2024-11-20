@@ -133,3 +133,10 @@
     transform: translateX(0);
   }
 }
+[dir="rtl"] .carousel {
+  direction: rtl;
+}
+
+[dir="ltr"] .carousel {
+  direction: ltr;
+}
