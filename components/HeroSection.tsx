@@ -94,7 +94,7 @@ const products = [
 
 const HeroSection = () => {
   return (
-    <div className="z-10">
+    <div className="z-10" id="home">
       <HeroParallax products={products} />
       <GlobeDemo />
     </div>
