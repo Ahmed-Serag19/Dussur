@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { useLocale } from "next-intl";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -162,6 +163,7 @@ export const Card = ({
   index: number;
   layout?: boolean;
 }) => {
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { onCardClose } = useContext(CarouselContext);
@@ -195,7 +197,7 @@ export const Card = ({
   };
 
   return (
-    <div>
+    <div dir={locale === "en" ? "ltr" : "rtl"}>
       <AnimatePresence>
         {open && (
           <div className="fixed inset-0 h-screen z-50 overflow-auto">
@@ -231,7 +233,7 @@ export const Card = ({
               >
                 {card.title}
               </motion.p>
-              <div className="py-10">{card.content}</div>
+              <div className="py-10 ">{card.content}</div>
             </motion.div>
           </div>
         )}
