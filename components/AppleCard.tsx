@@ -48,7 +48,7 @@ export const WhyDusser = () => {
       {/* Text */}
       <div>
         <h3 className="text-sky-600 font-bold text-2xl md:text-3xl mb-4">
-          Vision and Mission
+          Vision and Message
         </h3>
         <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
@@ -120,6 +120,95 @@ export const WhyDusserAr = () => {
   );
 };
 
+export const OurVision = () => {
+  const points = [
+    "Driving Innovation and Shaping the Future of Technology",
+    "Fostering Sustainability and Global Responsibility",
+    "Empowering Creativity and Cultivating Talent",
+    "Client-Centric Approach to Redefine Success",
+    "Building Scalable Systems for a Digital-First World",
+    "Ensuring Data Integrity and Advanced Cybersecurity",
+  ];
+
+  return (
+    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 max-w-6xl mx-auto">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row items-center gap-6">
+        <div className="flex-1">
+          <Image
+            src="/images/apply-idea.jpg"
+            alt="Vision"
+            height="500"
+            width="500"
+            className="w-full h-auto rounded-md object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Points */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        {points.map((point, index) => (
+          <div
+            key={index}
+            className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl"
+          >
+            <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+              {index + 1}.
+            </span>
+            <p>{point}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export const OurVisionAr = () => {
+  const points = [
+    "قيادة الابتكار وتشكيل مستقبل التكنولوجيا",
+    "تعزيز الاستدامة والمسؤولية العالمية",
+    "تمكين الإبداع وتنمية المواهب",
+    "نهج يرتكز على العميل لإعادة تعريف النجاح",
+    "بناء أنظمة قابلة للتوسع لعالم رقمي أولًا",
+    "ضمان أمن البيانات والحماية السيبرانية المتقدمة",
+  ];
+
+  return (
+    <div
+      className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 max-w-6xl mx-auto text-right"
+      dir="rtl"
+    >
+      {/* Header */}
+      <div className="flex flex-col md:flex-row items-center gap-6">
+        <div className="flex-1">
+          <Image
+            src="/images/apply-idea.jpg"
+            alt="رؤيتنا"
+            height="500"
+            width="500"
+            className="w-full h-auto rounded-md object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Points */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        {points.map((point, index) => (
+          <div
+            key={index}
+            className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl"
+          >
+            <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+              {index + 1}.
+            </span>
+            <p>{point}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const DummyContent = () => {
   return (
     <>
@@ -155,15 +244,15 @@ const DummyContent = () => {
 const data = [
   {
     category: "Why choose us?",
-    title: "Our Message and Vision",
+    title: "Vision and Message",
     src: "/images/why.jpg",
     content: <WhyDusser />,
   },
   {
-    category: "Productivity",
-    title: "Enhance your productivity.",
-    src: "/images/apply-idea.jpg",
-    content: <DummyContent />,
+    category: "Vision",
+    title: "Our Vision.",
+    src: "/images/our-vision.jpg",
+    content: <OurVision />,
   },
   {
     category: "Product",
@@ -186,10 +275,10 @@ const arData = [
     content: <WhyDusserAr />,
   },
   {
-    category: "Productivity",
-    title: "Enhance your productivity.",
-    src: "/images/apply-idea.jpg",
-    content: <DummyContent />,
+    category: "الرؤية",
+    title: "رؤيتنا للمشاريع",
+    src: "/images/our-vision.jpg",
+    content: <OurVisionAr />,
   },
   {
     category: "Product",
