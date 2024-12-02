@@ -15,7 +15,7 @@ export function AppleCardsCarousel() {
   ));
   return (
     <div className="w-full h-full py-20">
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 text-center dark:text-neutral-200 font-sans">
         {t("whyDussur")}
       </h2>
       {locale === "en" ? (
@@ -208,43 +208,399 @@ export const OurVisionAr = () => {
     </div>
   );
 };
-
-const DummyContent = () => {
+// OurMessageEn Component
+export const OurMessageEn = () => {
   return (
-    <>
-      {[...new Array(3).fill(1)].map((_, index) => {
-        return (
-          <div
-            key={"dummy-content" + index}
-            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-          >
-            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                The first rule of Apple club is that you boast about Apple club.
-              </span>{" "}
-              Keep a journal, quickly jot down a grocery list, and take amazing
-              class notes. Want to convert those notes to text? No problem.
-              Langotiya jeetu ka mara hua yaar is ready to capture every
-              thought.
-            </p>
-            <Image
-              src="/images/apply-idea.jpg"
-              alt="Macbook mockup from Aceternity UI"
-              height="500"
-              width="500"
-              className="h-full w-full mx-auto object-contain"
-            />
-          </div>
-        );
-      })}
-    </>
+    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 max-w-6xl mx-auto">
+      {/* Image */}
+      <div className="image-container mb-6">
+        <Image
+          src="/images/create-idea.jpg" // Change to your image path
+          alt="Our Message"
+          height="500"
+          width="500"
+          className="h-full w-full mx-auto object-contain rounded-md"
+        />
+      </div>
+
+      {/* Text */}
+      <div>
+        <h3 className="text-sky-600 font-bold text-2xl md:text-3xl mb-4">
+          Our Message
+        </h3>
+
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Our Focus:
+          </span>{" "}
+          We prioritize delivering exceptional software solutions that meet the
+          unique needs of our clients. Our focus is on innovation, efficiency,
+          and delivering outstanding customer service.
+        </p>
+
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed mt-4">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Our Goal:
+          </span>{" "}
+          Our goal is to empower businesses with technology that drives growth
+          and innovation. We are committed to building long-term relationships
+          with our clients through quality and collaboration.
+        </p>
+      </div>
+
+      {/* Points */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            1.
+          </span>
+          <p>Driving innovation with cutting-edge technology solutions.</p>
+        </div>
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            2.
+          </span>
+          <p>Creating scalable solutions that foster business growth.</p>
+        </div>
+      </div>
+
+      {/* Image */}
+      <div className="image-container mb-6">
+        <Image
+          src="/images/deliver-idea.jpg" // Change to your image path
+          alt="Message Illustration"
+          height="500"
+          width="500"
+          className="h-full w-full mx-auto object-contain rounded-lg py-5"
+        />
+      </div>
+
+      {/* Points */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            3.
+          </span>
+          <p>Commitment to continuous improvement and customer satisfaction.</p>
+        </div>
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            4.
+          </span>
+          <p>Delivering projects on time with exceptional quality.</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// OurMessageAr Component
+export const OurMessageAr = () => {
+  return (
+    <div
+      className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 max-w-6xl mx-auto text-right"
+      dir="rtl"
+    >
+      {/* Image */}
+      <div className="image-container mb-6">
+        <Image
+          src="/images/create-idea.jpg"
+          alt="رسالتنا"
+          height="500"
+          width="500"
+          className="h-full w-full mx-auto object-contain rounded-md"
+        />
+      </div>
+
+      {/* Text */}
+      <div>
+        <h3 className="text-red-600 font-bold text-2xl md:text-3xl mb-4">
+          رسالتنا
+        </h3>
+
+        <p className="text-neutral-600 dark:text-neutral-200 text-base md:text-xl font-sans leading-relaxed">
+          <span className="font-bold text-neutral-700 dark:text-blue-400">
+            تركيزنا:
+          </span>{" "}
+          نحن نركز على تقديم حلول برمجية استثنائية تلبي احتياجات عملائنا
+          الفريدة. تركيزنا الأساسي هو الابتكار والكفاءة وتقديم خدمة عملاء
+          استثنائية.
+        </p>
+
+        <p className="text-neutral-600 dark:text-neutral-200 text-base md:text-xl font-sans leading-relaxed mt-4">
+          <span className="font-bold text-neutral-700 dark:text-blue-400">
+            هدفنا:
+          </span>{" "}
+          هدفنا هو تمكين الأعمال من خلال التكنولوجيا التي تدفع النمو والابتكار.
+          نحن ملتزمون ببناء علاقات طويلة الأمد مع عملائنا من خلال الجودة
+          والتعاون.
+        </p>
+      </div>
+
+      {/* Points */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            1.
+          </span>
+          <p>الابتكار من خلال حلول تكنولوجيا حديثة ومتطورة.</p>
+        </div>
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            2.
+          </span>
+          <p>إنشاء حلول قابلة للتوسع تدفع نمو الأعمال.</p>
+        </div>
+      </div>
+
+      {/* Image */}
+      <div className="image-container mb-6 py-5">
+        <Image
+          src="/images/deliver-idea.jpg"
+          alt="رسالة توضيحية"
+          height="500"
+          width="500"
+          className="h-full w-full mx-auto object-contain rounded-lg"
+        />
+      </div>
+
+      {/* Points */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            3.
+          </span>
+          <p>الالتزام بتحقيق التحسين المستمر ورضا العملاء.</p>
+        </div>
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            4.
+          </span>
+          <p>تسليم المشاريع في الوقت المحدد مع جودة استثنائية.</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+export const OurProjectsEn = () => {
+  return (
+    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 max-w-6xl mx-auto">
+      {/* Project 1: Deraman */}
+      <div className="project py-10">
+        <div className="image-container mb-4">
+          <Image
+            src="/images/deraman.jpg"
+            alt="Deraman Project"
+            height="500"
+            width="500"
+            className="h-full w-full mx-auto object-contain rounded-md"
+          />
+        </div>
+        <h4 className="text-sky-600 font-bold text-xl mb-2">Deraman</h4>
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
+          "Deraman" is a platform designed for community connection, offering a
+          curated selection of female beauticians in Hail city, specializing in
+          makeup and hair styling services. The platform allows clients to book
+          services based on their preferences for time and location, simplifying
+          the process. It also offers specialized services for individuals with
+          special needs.
+        </p>
+      </div>
+
+      {/* Project 2: Gene Health */}
+      <div className="project py-10">
+        <div className="image-container mb-4">
+          <Image
+            src="/images/gene.jpg"
+            alt="Gene Health Project"
+            height="500"
+            width="500"
+            className="h-full w-full mx-auto object-contain rounded-md"
+          />
+        </div>
+        <h4 className="text-sky-600 font-bold text-xl mb-2">Gene Health</h4>
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
+          Gene Health offers genetic testing services, using samples and data to
+          enhance healthcare quality. The platform supports
+          scientifically-backed decisions based on genetic studies, allowing
+          users to access their results via login and manage their information
+          securely.
+        </p>
+      </div>
+
+      {/* Project 3: DWash */}
+      <div className="project py-10">
+        <div className="image-container mb-4">
+          <Image
+            src="/images/dwash.jpg"
+            alt="DWash Project"
+            height="500"
+            width="500"
+            className="h-full w-full mx-auto object-contain rounded-md"
+          />
+        </div>
+        <h4 className="text-sky-600 font-bold text-xl mb-2">DWash</h4>
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
+          DWash is a mobile car washing system available on both iOS and
+          Android. It provides a seamless experience for users who wish to wash
+          their cars at their location, with features to select the location and
+          manage bookings easily.
+        </p>
+      </div>
+
+      {/* Project 4: Tawajad */}
+      <div className="project py-10">
+        <div className="image-container mb-4">
+          <Image
+            src="/images/tawajad.jpg"
+            alt="Tawajad Project"
+            height="500"
+            width="500"
+            className="h-full w-full mx-auto object-contain rounded-md"
+          />
+        </div>
+        <h4 className="text-sky-600 font-bold text-xl mb-2">Tawajad</h4>
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
+          Tawajad is a smart, secure, and efficient system for managing employee
+          services. The platform streamlines processes such as leave requests,
+          salary certificates, internal communication, and attendance tracking,
+          improving employee experience and operational efficiency.
+        </p>
+      </div>
+
+      {/* Project 5: Darebaty */}
+      <div className="project py-10">
+        <div className="image-container mb-4">
+          <Image
+            src="/images/darebty.jpg"
+            alt="Darebaty Project"
+            height="500"
+            width="500"
+            className="h-full w-full mx-auto object-contain rounded-md"
+          />
+        </div>
+        <h4 className="text-sky-600 font-bold text-xl mb-2">Darebaty</h4>
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
+          Darebaty is a system designed for managing VAT tax services, including
+          registration, submitting tax returns, tax consultations, and invoice
+          auditing. The system supports users by simplifying tax processes and
+          assisting with tax-related inquiries.
+        </p>
+      </div>
+    </div>
+  );
+};
+export const OurProjectsAr = () => {
+  return (
+    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 max-w-6xl mx-auto">
+      {/* مشروع 1 */}
+      <div className="project mb-8">
+        <div className="image-container py-10">
+          <Image
+            src="/images/Deraman.jpg"
+            alt="ديرامان"
+            height="500"
+            width="500"
+            className="h-full w-full mx-auto object-contain rounded-md"
+          />
+        </div>
+        <h4 className="text-sky-600 font-bold text-xl mb-2">ديرمان</h4>
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
+          ديرمان هو منصة بنية لترابط مجتمعي من نخبة سعودية فريدة، حيث تجمع
+          مشاريع التزيين النسائي المختصة في مكياج الوجه وتصفيف الشعر في مدينة
+          حائل. توفر المنصة نظامًا تقنيًا يساعد في حجز الخدمات وفقاً لاختيارات
+          العميل في الزمان والمكان بكل سهولة وراحة، مع تقديم خدمات مخصصة لذوي
+          الهمم.
+        </p>
+      </div>
+
+      {/* مشروع 2 */}
+      <div className="project mb-8">
+        <div className="image-container py-10">
+          <Image
+            src="/images/gene.jpg"
+            alt="جيني هيلث"
+            height="500"
+            width="500"
+            className="h-full w-full mx-auto object-contain rounded-md"
+          />
+        </div>
+        <h4 className="text-sky-600 font-bold text-xl mb-2">جين هيلث</h4>
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
+          جين هيلث يقدم فحصًا وراثيًا مسبقًا للمساهمة في رفع جودة القطاع الصحي
+          من خلال اتخاذ قرارات مبنية على دراسات علمية حول العينات المأخوذة. يتيح
+          لك المنصة التفاعل من خلال تسجيل الدخول باستخدام الرقم الوطني أو البريد
+          الإلكتروني، وتنزيل التطبيق من متجر جوجل بلاي أو آبل.
+        </p>
+      </div>
+
+      {/* مشروع 3 */}
+      <div className="project mb-8">
+        <div className="image-container py-10">
+          <Image
+            src="/images/DWash.jpg"
+            alt="غسيل سيارات"
+            height="500"
+            width="500"
+            className="h-full w-full mx-auto object-contain rounded-md"
+          />
+        </div>
+        <h4 className="text-sky-600 font-bold text-xl mb-2">نظام DWash</h4>
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
+          DWash هو نظام غسيل السيارات المتنقل الذي يسهل عملية حجز غسيل السيارات
+          عبر تطبيقات iOS و Android. يتيح للمستخدمين حجز خدمات مغاسل السيارات من
+          مواقعهم بكل سهولة، بالإضافة إلى لوحة تحكم لإدارة المستخدمين وحجوزات
+          العملاء.
+        </p>
+      </div>
+
+      {/* مشروع 4 */}
+      <div className="project mb-8">
+        <div className="image-container py-10">
+          <Image
+            src="/images/tawajad.jpg"
+            alt="تواجد"
+            height="500"
+            width="500"
+            className="h-full w-full mx-auto object-contain rounded-md"
+          />
+        </div>
+        <h4 className="text-sky-600 font-bold text-xl mb-2">تواجد</h4>
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
+          تواجد هو نظام ذكي يساعد في إدارة الموظفين بكفاءة وسهولة، ويتيح خدمات
+          متنوعة تشمل طلب الإجازات، خطابات التعريف بالراتب، بالإضافة إلى الخدمات
+          الذاتية والتواصل الداخلي. يمكن للموظفين متابعة سجلات الحضور والمواقع
+          المختلفة عبر النظام.
+        </p>
+      </div>
+
+      {/* مشروع 5 */}
+      <div className="project mb-8">
+        <div className="image-container py-10">
+          <Image
+            src="/images/Darebty.jpg"
+            alt="مشروع 5"
+            height="500"
+            width="500"
+            className="h-full w-full mx-auto object-contain rounded-md"
+          />
+        </div>
+        <h4 className="text-sky-600 font-bold text-xl mb-2">ضريبتي</h4>
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
+          ضريبتي هو نظام يقدم جميع الخدمات الضريبية للمسجلين في ضريبة القيمة
+          المضافة مثل التسجيل، رفع الإقرارات الضريبية، الاستشارات الضريبية وفحص
+          الفواتير. يقدم النظام مساعدة للمكلفين في وقت الفحص لضمان الالتزام
+          بالقوانين الضريبية.
+        </p>
+      </div>
+    </div>
   );
 };
 
 const data = [
   {
     category: "Why choose us?",
-    title: "Vision and Message",
+    title: "Vision and Message.",
     src: "/images/why.jpg",
     content: <WhyDusser />,
   },
@@ -255,16 +611,16 @@ const data = [
     content: <OurVision />,
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "/images/apply-idea.jpg",
-    content: <DummyContent />,
+    category: "Message",
+    title: "Our Message.",
+    src: "/images/our-message.jpeg",
+    content: <OurMessageEn />,
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "/images/apply-idea.jpg",
-    content: <DummyContent />,
+    category: "Projects",
+    title: "Previous Projects.",
+    src: "/images/our-projects.jpeg",
+    content: <OurProjectsEn />,
   },
 ];
 const arData = [
@@ -281,15 +637,15 @@ const arData = [
     content: <OurVisionAr />,
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "/images/apply-idea.jpg",
-    content: <DummyContent />,
+    category: "الرسالة",
+    title: "رسالتنا",
+    src: "/images/our-message.jpeg",
+    content: <OurMessageAr />,
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "/images/apply-idea.jpg",
-    content: <DummyContent />,
+    category: "مشاريعنا",
+    title: "جزء من مشاريعنا السابقة",
+    src: "/images/our-projects.jpeg",
+    content: <OurProjectsAr />,
   },
 ];
