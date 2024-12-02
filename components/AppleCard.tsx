@@ -15,7 +15,7 @@ export function AppleCardsCarousel() {
   ));
   return (
     <div className="w-full h-full py-20">
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 text-center dark:text-neutral-200 font-sans">
         {t("whyDussur")}
       </h2>
       {locale === "en" ? (
@@ -208,6 +208,180 @@ export const OurVisionAr = () => {
     </div>
   );
 };
+// OurMessageEn Component
+export const OurMessageEn = () => {
+  return (
+    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 max-w-6xl mx-auto">
+      {/* Image */}
+      <div className="image-container mb-6">
+        <Image
+          src="/images/create-idea.jpg" // Change to your image path
+          alt="Our Message"
+          height="500"
+          width="500"
+          className="h-full w-full mx-auto object-contain rounded-md"
+        />
+      </div>
+
+      {/* Text */}
+      <div>
+        <h3 className="text-sky-600 font-bold text-2xl md:text-3xl mb-4">
+          Our Message
+        </h3>
+
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Our Focus:
+          </span>{" "}
+          We prioritize delivering exceptional software solutions that meet the
+          unique needs of our clients. Our focus is on innovation, efficiency,
+          and delivering outstanding customer service.
+        </p>
+
+        <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed mt-4">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Our Goal:
+          </span>{" "}
+          Our goal is to empower businesses with technology that drives growth
+          and innovation. We are committed to building long-term relationships
+          with our clients through quality and collaboration.
+        </p>
+      </div>
+
+      {/* Points */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            1.
+          </span>
+          <p>Driving innovation with cutting-edge technology solutions.</p>
+        </div>
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            2.
+          </span>
+          <p>Creating scalable solutions that foster business growth.</p>
+        </div>
+      </div>
+
+      {/* Image */}
+      <div className="image-container mb-6">
+        <Image
+          src="/images/deliver-idea.jpg" // Change to your image path
+          alt="Message Illustration"
+          height="500"
+          width="500"
+          className="h-full w-full mx-auto object-contain rounded-lg py-5"
+        />
+      </div>
+
+      {/* Points */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            3.
+          </span>
+          <p>Commitment to continuous improvement and customer satisfaction.</p>
+        </div>
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            4.
+          </span>
+          <p>Delivering projects on time with exceptional quality.</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// OurMessageAr Component
+export const OurMessageAr = () => {
+  return (
+    <div
+      className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 max-w-6xl mx-auto text-right"
+      dir="rtl"
+    >
+      {/* Image */}
+      <div className="image-container mb-6">
+        <Image
+          src="/images/create-idea.jpg"
+          alt="رسالتنا"
+          height="500"
+          width="500"
+          className="h-full w-full mx-auto object-contain rounded-md"
+        />
+      </div>
+
+      {/* Text */}
+      <div>
+        <h3 className="text-red-600 font-bold text-2xl md:text-3xl mb-4">
+          رسالتنا
+        </h3>
+
+        <p className="text-neutral-600 dark:text-neutral-200 text-base md:text-xl font-sans leading-relaxed">
+          <span className="font-bold text-neutral-700 dark:text-blue-400">
+            تركيزنا:
+          </span>{" "}
+          نحن نركز على تقديم حلول برمجية استثنائية تلبي احتياجات عملائنا
+          الفريدة. تركيزنا الأساسي هو الابتكار والكفاءة وتقديم خدمة عملاء
+          استثنائية.
+        </p>
+
+        <p className="text-neutral-600 dark:text-neutral-200 text-base md:text-xl font-sans leading-relaxed mt-4">
+          <span className="font-bold text-neutral-700 dark:text-blue-400">
+            هدفنا:
+          </span>{" "}
+          هدفنا هو تمكين الأعمال من خلال التكنولوجيا التي تدفع النمو والابتكار.
+          نحن ملتزمون ببناء علاقات طويلة الأمد مع عملائنا من خلال الجودة
+          والتعاون.
+        </p>
+      </div>
+
+      {/* Points */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            1.
+          </span>
+          <p>الابتكار من خلال حلول تكنولوجيا حديثة ومتطورة.</p>
+        </div>
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            2.
+          </span>
+          <p>إنشاء حلول قابلة للتوسع تدفع نمو الأعمال.</p>
+        </div>
+      </div>
+
+      {/* Image */}
+      <div className="image-container mb-6 py-5">
+        <Image
+          src="/images/deliver-idea.jpg"
+          alt="رسالة توضيحية"
+          height="500"
+          width="500"
+          className="h-full w-full mx-auto object-contain rounded-lg"
+        />
+      </div>
+
+      {/* Points */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            3.
+          </span>
+          <p>الالتزام بتحقيق التحسين المستمر ورضا العملاء.</p>
+        </div>
+        <div className="flex items-center gap-4 text-neutral-700 dark:text-neutral-100 text-lg md:text-xl">
+          <span className="text-red-600 dark:text-red-400 font-bold text-2xl">
+            4.
+          </span>
+          <p>تسليم المشاريع في الوقت المحدد مع جودة استثنائية.</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const DummyContent = () => {
   return (
@@ -244,7 +418,7 @@ const DummyContent = () => {
 const data = [
   {
     category: "Why choose us?",
-    title: "Vision and Message",
+    title: "Vision and Message.",
     src: "/images/why.jpg",
     content: <WhyDusser />,
   },
@@ -255,15 +429,15 @@ const data = [
     content: <OurVision />,
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "/images/apply-idea.jpg",
-    content: <DummyContent />,
+    category: "Message",
+    title: "Our Message.",
+    src: "/images/our-message.jpeg",
+    content: <OurMessageEn />,
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "/images/apply-idea.jpg",
+    category: "Projects",
+    title: "Previous Projects.",
+    src: "/images/our-projects.jpeg",
     content: <DummyContent />,
   },
 ];
@@ -281,15 +455,15 @@ const arData = [
     content: <OurVisionAr />,
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "/images/apply-idea.jpg",
-    content: <DummyContent />,
+    category: "الرسالة",
+    title: "رسالتنا",
+    src: "/images/our-message.jpeg",
+    content: <OurMessageAr />,
   },
   {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "/images/apply-idea.jpg",
+    category: "مشاريعنا",
+    title: "جزء من مشاريعنا السابقة",
+    src: "/images/our-projects.jpeg",
     content: <DummyContent />,
   },
 ];

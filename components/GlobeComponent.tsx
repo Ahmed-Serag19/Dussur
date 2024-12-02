@@ -264,12 +264,12 @@ export function GlobeDemo() {
           <h2 className="text-xl md:text-4xl font-bold text-[hsl(var(--foreground))] dark:text-[hsl(var(--primary))]">
             {t("globeheadline")}
           </h2>
-          <p className="text-base md:text-lg font-normal text-[hsl(var(--muted-foreground))] dark:text-[hsl(var(--primary)] max-w-md mt-2 mx-auto">
+          <p className="text-base md:text-lg font-normal text-[hsl(var(--muted-foreground))] dark:text-[hsl(var(--primary)] max-w-md my-5 mx-auto">
             {t("globesubheadline")}
           </p>
         </motion.div>
         {/* <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b from-transparent to-[hsl(var(--background))] dark:to-[hsl(var(--foreground))] pointer-events-none select-none z-40" /> */}
-        <div className="absolute w-full py-3 md:-bottom-20 sm:-bottom-0 h-80 md:h-[30rem] lg:h-full z-10">
+        <div className="absolute w-full py-3 md:-bottom-20 sm:-bottom-0 h-80 md:h-[30rem] lg:h-full z-10 my-5">
           <World data={adjustedSampleArcs} globeConfig={globeConfig} />
         </div>
       </div>
