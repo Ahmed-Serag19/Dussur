@@ -398,7 +398,7 @@ export const OurProjectsEn = () => {
         </div>
         <h4 className="text-sky-600 font-bold text-xl mb-2">Deraman</h4>
         <p className="text-neutral-600 dark:text-neutral-100 text-base md:text-xl font-sans leading-relaxed">
-          "Deraman" is a platform designed for community connection, offering a
+          Deraman is a platform designed for community connection, offering a
           curated selection of female beauticians in Hail city, specializing in
           makeup and hair styling services. The platform allows clients to book
           services based on their preferences for time and location, simplifying
