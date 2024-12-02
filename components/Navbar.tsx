@@ -76,11 +76,6 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="#pricing" className="nav-link">
-              {t("pricing")}
-            </Link>
-          </li>
-          <li>
             <Link href="#contact" className="nav-link">
               {t("contact")}
             </Link>

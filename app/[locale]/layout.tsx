@@ -19,8 +19,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Dussur",
-  description: "Dussur we turn your idea into software solution",
+  title: "Dusser",
+  description: "Dusser we turn your idea into software solution",
 };
 
 export default async function RootLayout({
