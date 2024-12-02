@@ -497,7 +497,7 @@ export const OurProjectsAr = () => {
       <div className="project mb-8">
         <div className="image-container py-10">
           <Image
-            src="/images/Deraman.jpg"
+            src="/images/deraman.jpg"
             alt="ديرامان"
             height="500"
             width="500"
