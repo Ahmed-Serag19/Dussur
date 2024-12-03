@@ -98,7 +98,7 @@ export function ServicesSection() {
         <h2 className="text-3xl font-semibold text-neutral-900 dark:text-neutral-100 py-8 mb-5">
           {locale === "en"
             ? "Offering a Wide Variety of IT Services"
-            : "تقديم مجموعة واسعة من خدمات تكنولوجيا المعلومات"}
+            : "تقديم مجموعة واسعة من الخدمات "}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (

@@ -281,7 +281,7 @@ export const BlurImage = ({
   return (
     <Image
       className={cn(
-        "transition duration-300",
+        "transition duration-300 hover:scale-110",
         isLoading ? "blur-sm" : "blur-0",
         className
       )}
