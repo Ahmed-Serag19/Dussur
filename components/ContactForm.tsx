@@ -9,7 +9,7 @@ import { FormInput } from "@/components/ui/form-input";
 import { FormTextarea } from "@/components/ui/form-textarea";
 import { SubmitButton } from "@/components/ui/submit-button";
 import type { z } from "zod";
-import { useTranslations } from "next-intl"; // Import translations
+import { useTranslations } from "next-intl";
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
@@ -49,6 +49,7 @@ export function ContactForm() {
       }
     } catch (error) {
       setSubmitStatus("error");
+      console.log(error);
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus("idle"), 5000);

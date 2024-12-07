@@ -1,14 +1,13 @@
 "use client";
 
-import { useRouter } from "next/router"; // To handle language switching
 import { ContactForm } from "@/components/ContactForm";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { Clock, Phone } from "lucide-react";
-import { useTranslations } from "next-intl"; // Import for translations
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 export default function ContactSection() {
-  const t = useTranslations(); // Use translations hook
+  const t = useTranslations();
 
   return (
     <div className="min-h-screen bg-background py-8 sm:py-12">
@@ -21,7 +20,6 @@ export default function ContactSection() {
             {t("contact_description")}
           </p>
         </div>
-
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
           <Link target="_blank" href="https://wa.me/+966549976777">
             <div className="bg-card p-6 rounded-lg shadow-md flex flex-col items-center text-center transition duration-300 cursor-pointer hover:bg-slate-900">
@@ -31,7 +29,6 @@ export default function ContactSection() {
               </h3>{" "}
             </div>
           </Link>
-
           <div className="bg-card p-6 rounded-lg shadow-md flex flex-col items-center text-center">
             <Clock className="w-10 h-10 mb-4 text-primary" />
             <h3 className="font-semibold mb-2">{t("business_hours")}</h3>
@@ -41,7 +38,6 @@ export default function ContactSection() {
               {t("business_time")}
             </p>
           </div>
-
           <Link target="_blank" href="tel:+966549976777">
             <div className="bg-card p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer transition duration-300 hover:bg-slate-900">
               <Phone className="w-10 h-10 mb-4 text-primary" />
@@ -49,7 +45,6 @@ export default function ContactSection() {
             </div>
           </Link>
         </div>
-
         <ContactForm />
       </div>
     </div>

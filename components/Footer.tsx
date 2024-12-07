@@ -5,7 +5,8 @@ export function Footer() {
         <div className="flex justify-center items-center gap-10">
           <h2 className="text-2xl font-bold text-foreground">Dusser</h2>
           <p className="text-muted-foreground">
-            Building innovative software solutions for tomorrow's challenges.
+            Building innovative software solutions for tomorrow&apos;s
+            challenges.
           </p>
         </div>
 
