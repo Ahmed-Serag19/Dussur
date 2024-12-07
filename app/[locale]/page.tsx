@@ -1,6 +1,5 @@
 import AboutUs from "@/components/AboutUs";
 import ContactSection from "@/components/ContactSection";
-import { Footer } from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { useLocale } from "next-intl";
@@ -15,7 +14,6 @@ export default function Home() {
         <AboutUs />
         <ServicesSection />
         <ContactSection />
-        <Footer />
       </div>
     </>
   );
