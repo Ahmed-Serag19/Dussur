@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Navbar from "@/components/Navbar";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import Navbar from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 
-// Fonts setup
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+// Configure IBM Plex Sans Arabic font
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["arabic", "latin"],
+  variable: "--font-ibm-plex-arabic",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -28,14 +25,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Destructure `locale` after accessing params
   const messages = await getMessages();
 
   return (
-    <html lang="ar">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="ar" dir="rtl">
+      <body className={`${ibmPlexSansArabic.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -45,6 +39,7 @@ export default async function RootLayout({
           <NextIntlClientProvider messages={messages}>
             <Navbar />
             {children}
+            <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
