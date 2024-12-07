@@ -1,10 +1,13 @@
 "use client";
+import { useLocale } from "next-intl";
 
 interface SubmitButtonProps {
   isSubmitting: boolean;
 }
 
 export function SubmitButton({ isSubmitting }: SubmitButtonProps) {
+  const locale = useLocale();
+
   return (
     <button
       type="submit"
@@ -35,8 +38,10 @@ export function SubmitButton({ isSubmitting }: SubmitButtonProps) {
           </svg>
           Sending...
         </span>
-      ) : (
+      ) : locale == "en" ? (
         "Send Message"
+      ) : (
+        "أرسل ايميل"
       )}
     </button>
   );
