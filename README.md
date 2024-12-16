@@ -99,7 +99,6 @@ For any inquiries or questions, feel free to reach out via the Contact Section o
 vbnet
 Copy code
 
-Simply copy and paste this into your `README.md` file on GitHub. Let me know if you need further tweaks!
 
 
 
