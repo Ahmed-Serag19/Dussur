@@ -28,7 +28,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body className={`${ibmPlexSansArabic.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
