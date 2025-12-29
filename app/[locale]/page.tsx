@@ -1,8 +1,15 @@
-import AboutUs from "@/components/AboutUs";
-import ContactSection from "@/components/ContactSection";
 import HeroSection from "@/components/HeroSection";
-import { ServicesSection } from "@/components/ServicesSection";
+import dynamic from "next/dynamic";
 import { useLocale } from "next-intl";
+
+// Lazy load below-the-fold components
+const AboutUs = dynamic(() => import("@/components/AboutUs"));
+const ServicesSection = dynamic(() =>
+  import("@/components/ServicesSection").then((mod) => ({
+    default: mod.ServicesSection,
+  }))
+);
+const ContactSection = dynamic(() => import("@/components/ContactSection"));
 
 export default function Home() {
   const locale = useLocale();

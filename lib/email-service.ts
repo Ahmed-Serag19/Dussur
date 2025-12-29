@@ -17,8 +17,8 @@ export async function sendEmail(data: EmailData): Promise<boolean> {
       process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
     );
     return result.status === 200;
-  } catch (error) {
-    console.error("Email sending failed:", error);
+  } catch {
+    // Silently fail in production
     return false;
   }
 }

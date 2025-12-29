@@ -6,10 +6,11 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { LazyMotion, domAnimation } from "framer-motion";
 
 // Configure IBM Plex Sans Arabic font
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   subsets: ["arabic", "latin"],
   variable: "--font-ibm-plex-arabic",
   display: "swap",
@@ -28,7 +29,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body className={`${ibmPlexSansArabic.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -37,9 +38,11 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider messages={messages}>
-            <Navbar />
-            {children}
-            <Footer />
+            <LazyMotion features={domAnimation} strict>
+              <Navbar />
+              {children}
+              <Footer />
+            </LazyMotion>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

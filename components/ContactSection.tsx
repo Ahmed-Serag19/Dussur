@@ -21,7 +21,7 @@ export default function ContactSection() {
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
-          <Link target="_blank" href="https://wa.me/+966549976777">
+          <Link target="_blank" href="https://wa.me/+966582906777">
             <div className="bg-card p-6 rounded-lg shadow-md flex flex-col items-center text-center transition duration-300 cursor-pointer hover:dark:bg-slate-900 hover:bg-slate-100">
               <IconBrandWhatsapp className="w-10 h-10 mb-4 text-primary" />
               <h3 className="font-semibold mb-2">
@@ -38,7 +38,7 @@ export default function ContactSection() {
               {t("business_time")}
             </p>
           </div>
-          <Link target="_blank" href="tel:+966549976777">
+          <Link target="_blank" href="tel:+966582906777">
             <div className="bg-card p-6 rounded-lg shadow-md flex flex-col items-center text-center cursor-pointer transition duration-300 hover:dark:bg-slate-900 hover:bg-slate-100">
               <Phone className="w-10 h-10 mb-4 text-primary" />
               <h3 className="font-semibold mb-2">{t("software_company")}</h3>
