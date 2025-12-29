@@ -1,12 +1,7 @@
 import React from "react";
-import { AppleCardsCarousel } from "./AppleCard";
 
 const AboutUs = () => {
-  return (
-    <div id="about">
-      <AppleCardsCarousel />
-    </div>
-  );
+  return <div id="about">Q</div>;
 };
 
 export default AboutUs;

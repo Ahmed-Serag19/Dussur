@@ -74,26 +74,69 @@ const isValidCoordinate = (lat: number, lng: number): boolean => {
   return isValid;
 };
 
-// Validate arc data
+// Validate arc data with comprehensive checks
 const validateArc = (arc: Position, index: number): boolean => {
-  const isValid = Boolean(
-    isValidCoordinate(arc.startLat, arc.startLng) &&
-      isValidCoordinate(arc.endLat, arc.endLng) &&
-      arc.color &&
-      typeof arc.color === "string" &&
-      arc.color.startsWith("#") &&
-      typeof arc.order === "number" &&
-      !isNaN(arc.order) &&
-      typeof arc.arcAlt === "number" &&
-      !isNaN(arc.arcAlt) &&
-      arc.arcAlt >= 0
-  );
-
-  if (!isValid) {
-    console.warn(`Invalid arc at index ${index}:`, arc);
+  // Check if arc exists and is an object
+  if (!arc || typeof arc !== "object") {
+    console.warn(`Arc at index ${index} is null or not an object`);
+    return false;
   }
 
-  return isValid;
+  // Check if all required properties exist
+  if (
+    !("startLat" in arc) ||
+    !("startLng" in arc) ||
+    !("endLat" in arc) ||
+    !("endLng" in arc) ||
+    !("color" in arc) ||
+    !("order" in arc) ||
+    !("arcAlt" in arc)
+  ) {
+    console.warn(`Arc at index ${index} is missing required properties:`, arc);
+    return false;
+  }
+
+  // Validate coordinates
+  if (
+    !isValidCoordinate(arc.startLat, arc.startLng) ||
+    !isValidCoordinate(arc.endLat, arc.endLng)
+  ) {
+    console.warn(`Invalid coordinates for arc at index ${index}:`, arc);
+    return false;
+  }
+
+  // Validate color
+  if (
+    !arc.color ||
+    typeof arc.color !== "string" ||
+    !arc.color.startsWith("#")
+  ) {
+    console.warn(`Invalid color for arc at index ${index}:`, arc.color);
+    return false;
+  }
+
+  // Validate order
+  if (
+    typeof arc.order !== "number" ||
+    isNaN(arc.order) ||
+    !isFinite(arc.order)
+  ) {
+    console.warn(`Invalid order for arc at index ${index}:`, arc.order);
+    return false;
+  }
+
+  // Validate arcAlt
+  if (
+    typeof arc.arcAlt !== "number" ||
+    isNaN(arc.arcAlt) ||
+    !isFinite(arc.arcAlt) ||
+    arc.arcAlt < 0
+  ) {
+    console.warn(`Invalid arcAlt for arc at index ${index}:`, arc.arcAlt);
+    return false;
+  }
+
+  return true;
 };
 
 export function Globe({ globeConfig, data }: WorldProps) {
@@ -183,13 +226,27 @@ export function Globe({ globeConfig, data }: WorldProps) {
     try {
       console.log("Original data length:", data.length);
 
-      // Enhanced data validation
-      const validData = data.filter((arc, index) => validateArc(arc, index));
+      // Enhanced data validation - ensure data exists and is an array
+      if (!data || !Array.isArray(data) || data.length === 0) {
+        console.warn("No data provided or data is not an array");
+        setHasError(true);
+        return;
+      }
+
+      // Filter and validate all arcs
+      const validData = data.filter((arc, index) => {
+        // Additional null/undefined checks
+        if (!arc || typeof arc !== "object") {
+          console.warn(`Arc at index ${index} is null or not an object`);
+          return false;
+        }
+        return validateArc(arc, index);
+      });
 
       console.log("Valid data length:", validData.length);
 
       if (validData.length === 0) {
-        console.warn("No valid data points found");
+        console.warn("No valid data points found after validation");
         setHasError(true);
         return;
       }
@@ -215,6 +272,19 @@ export function Globe({ globeConfig, data }: WorldProps) {
           continue;
         }
 
+        // Additional safety check: ensure all numeric values are finite
+        if (
+          !isFinite(arc.startLat) ||
+          !isFinite(arc.startLng) ||
+          !isFinite(arc.endLat) ||
+          !isFinite(arc.endLng) ||
+          !isFinite(arc.arcAlt) ||
+          !isFinite(arc.order)
+        ) {
+          console.warn(`Non-finite values detected for arc ${i}:`, arc);
+          continue;
+        }
+
         points.push({
           size: defaultProps.pointSize,
           order: arc.order,
@@ -233,7 +303,21 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
       console.log("Total points created:", points.length);
 
-      const filteredPoints = points.filter(
+      // Additional validation on points before filtering
+      const validPoints = points.filter((point) => {
+        const isValid =
+          isValidCoordinate(point.lat, point.lng) &&
+          isFinite(point.size) &&
+          isFinite(point.order);
+        if (!isValid) {
+          console.warn("Invalid point detected:", point);
+        }
+        return isValid;
+      });
+
+      console.log("Valid points after filtering:", validPoints.length);
+
+      const filteredPoints = validPoints.filter(
         (v, i, a) =>
           a.findIndex((v2) =>
             ["lat", "lng"].every(
@@ -243,6 +327,13 @@ export function Globe({ globeConfig, data }: WorldProps) {
       );
 
       console.log("Filtered points length:", filteredPoints.length);
+
+      if (filteredPoints.length === 0) {
+        console.warn("No valid points after deduplication");
+        setHasError(true);
+        return;
+      }
+
       setGlobeData(filteredPoints);
     } catch (error) {
       console.error("Error building data:", error);
@@ -254,13 +345,37 @@ export function Globe({ globeConfig, data }: WorldProps) {
     if (globeRef.current && globeData && isInitialized && !hasError) {
       try {
         console.log("Setting up globe with countries data...");
+
+        // Validate countries data before using it
+        if (
+          !countries ||
+          !countries.features ||
+          !Array.isArray(countries.features)
+        ) {
+          console.warn("Invalid countries data");
+          setHasError(true);
+          return;
+        }
+
+        // Validate globeData before proceeding
+        if (!globeData || globeData.length === 0) {
+          console.warn("No globe data available");
+          setHasError(true);
+          return;
+        }
+
+        // Ensure all numeric config values are valid
+        const safeAtmosphereAltitude = isFinite(defaultProps.atmosphereAltitude)
+          ? defaultProps.atmosphereAltitude
+          : 0.1;
+
         globeRef.current
           .hexPolygonsData(countries.features)
           .hexPolygonResolution(3)
           .hexPolygonMargin(0.7)
           .showAtmosphere(defaultProps.showAtmosphere)
           .atmosphereColor(defaultProps.atmosphereColor)
-          .atmosphereAltitude(defaultProps.atmosphereAltitude)
+          .atmosphereAltitude(safeAtmosphereAltitude)
           .hexPolygonColor(() => defaultProps.polygonColor);
 
         startAnimation();
@@ -272,39 +387,111 @@ export function Globe({ globeConfig, data }: WorldProps) {
   }, [globeData, isInitialized, hasError]);
 
   const startAnimation = () => {
-    if (!globeRef.current || !globeData || hasError) return;
+    if (!globeRef.current || !globeData || hasError) {
+      console.warn("Cannot start animation: missing dependencies");
+      return;
+    }
 
     try {
       console.log("Starting animation...");
 
-      // Filter data again for safety
-      const validData = data.filter((arc, index) => validateArc(arc, index));
+      // Comprehensive data validation before BufferGeometry operations
+      if (!data || !Array.isArray(data) || data.length === 0) {
+        console.warn("No valid data array for animation");
+        setHasError(true);
+        return;
+      }
+
+      // Filter and validate data with strict checks
+      const validData = data.filter((arc, index) => {
+        if (!arc || typeof arc !== "object") {
+          return false;
+        }
+        return validateArc(arc, index);
+      });
 
       if (validData.length === 0) {
-        console.warn("No valid data for animation");
+        console.warn("No valid data for animation after filtering");
+        setHasError(true);
         return;
       }
 
       console.log("Setting up arcs with", validData.length, "valid arcs");
 
+      // Safety wrapper for arc accessors to prevent NaN propagation
+      const safeGetNumber = (
+        value: any,
+        fallback: number,
+        name: string
+      ): number => {
+        if (typeof value !== "number" || isNaN(value) || !isFinite(value)) {
+          console.warn(`Invalid ${name} value:`, value, "using fallback");
+          return fallback;
+        }
+        return value;
+      };
+
       globeRef.current
         .arcsData(validData)
-        .arcStartLat((d) => (d as { startLat: number }).startLat)
-        .arcStartLng((d) => (d as { startLng: number }).startLng)
-        .arcEndLat((d) => (d as { endLat: number }).endLat)
-        .arcEndLng((d) => (d as { endLng: number }).endLng)
-        .arcColor((e: any) => (e as { color: string }).color)
-        .arcAltitude((e) => (e as { arcAlt: number }).arcAlt)
+        .arcStartLat((d) =>
+          safeGetNumber((d as { startLat: number }).startLat, 0, "startLat")
+        )
+        .arcStartLng((d) =>
+          safeGetNumber((d as { startLng: number }).startLng, 0, "startLng")
+        )
+        .arcEndLat((d) =>
+          safeGetNumber((d as { endLat: number }).endLat, 0, "endLat")
+        )
+        .arcEndLng((d) =>
+          safeGetNumber((d as { endLng: number }).endLng, 0, "endLng")
+        )
+        .arcColor((e: any) => {
+          const color = (e as { color: string }).color;
+          return typeof color === "string" && color.startsWith("#")
+            ? color
+            : "#ffffff";
+        })
+        .arcAltitude((e) =>
+          safeGetNumber((e as { arcAlt: number }).arcAlt, 0.1, "arcAlt")
+        )
         .arcStroke(() => [0.32, 0.28, 0.3][Math.floor(Math.random() * 3)])
         .arcDashLength(defaultProps.arcLength)
-        .arcDashInitialGap((e) => (e as { order: number }).order)
+        .arcDashInitialGap((e) =>
+          safeGetNumber((e as { order: number }).order, 1, "order")
+        )
         .arcDashGap(15)
         .arcDashAnimateTime(() => defaultProps.arcTime);
 
       console.log("Setting up points...");
+
+      // Validate globeData before setting points
+      if (!globeData || globeData.length === 0) {
+        console.warn("No globe data available for points");
+        return;
+      }
+
+      // Additional validation: ensure all points have valid coordinates
+      const validPoints = globeData.filter((point) => {
+        return (
+          point &&
+          typeof point === "object" &&
+          isValidCoordinate(point.lat, point.lng) &&
+          isFinite(point.size) &&
+          isFinite(point.order)
+        );
+      });
+
+      if (validPoints.length === 0) {
+        console.warn("No valid points for rendering");
+        return;
+      }
+
       globeRef.current
-        .pointsData(validData)
-        .pointColor((e) => (e as { color: string }).color)
+        .pointsData(validPoints)
+        .pointColor((e) => {
+          const colorFn = (e as any).color;
+          return typeof colorFn === "function" ? colorFn(1) : "#ffffff";
+        })
         .pointsMerge(true)
         .pointAltitude(0.0)
         .pointRadius(2);
@@ -359,7 +546,7 @@ export function WebGLRendererConfig() {
     } catch (error) {
       console.error("Error configuring WebGL renderer:", error);
     }
-  }, []);
+  }, [gl, size.height, size.width]);
 
   return null;
 }

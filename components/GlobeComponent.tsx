@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 
@@ -260,7 +260,7 @@ export function GlobeDemo() {
   return (
     <div className="flex flex-row items-center justify-center pt-10 pb-5 h-screen md:h-auto bg-[hsl(var(--background))] dark:bg-[#0a0a0a] relative w-full">
       <div className="max-w-7xl mx-auto w-full relative overflow-x-hidden overflow-y-hidden h-2/3 md:h-[40rem] sm:h-[20rem] px-4">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -272,7 +272,7 @@ export function GlobeDemo() {
           <p className="text-base md:text-lg font-normal text-[hsl(var(--muted-foreground))] dark:text-[hsl(var(--primary)] max-w-md my-5 mx-auto">
             {t("globesubheadline")}
           </p>
-        </motion.div>
+        </m.div>
         {/* <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b from-transparent to-[hsl(var(--background))] dark:to-[hsl(var(--foreground))] pointer-events-none select-none z-40" /> */}
         <div className="absolute w-full py-3 md:-bottom-20 sm:-bottom-0 h-80 md:h-[30rem] lg:h-full z-10 my-5">
           <World data={adjustedSampleArcs} globeConfig={globeConfig} />

@@ -46,15 +46,15 @@ export default function Navbar() {
           {resolvedTheme === "dark" ? (
             <Image
               src="/images/darkmode-logo.png"
-              width={100}
-              height={40}
+              width={130}
+              height={52}
               alt="Company Logo Dark"
             />
           ) : (
             <Image
               src="/images/lightmode-logo-removebg-preview.png"
-              width={100}
-              height={40}
+              width={130}
+              height={52}
               alt="Company Logo Light"
             />
           )}
