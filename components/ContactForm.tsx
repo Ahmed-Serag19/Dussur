@@ -38,7 +38,7 @@ export function ContactForm() {
         from_email: data.email,
         subject: data.subject,
         message: data.message,
-        to_email: "eng.abdulwahab7@gmail.com",
+        to_email: "abdulwahab@dussur.sa",
       });
 
       if (success) {
@@ -47,9 +47,8 @@ export function ContactForm() {
       } else {
         setSubmitStatus("error");
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus("error");
-      console.log(error);
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus("idle"), 5000);
