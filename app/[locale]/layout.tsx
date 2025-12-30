@@ -17,8 +17,11 @@ const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: "Dusser",
-  description: "Dusser we turn your idea into software solution",
+  title: "Dussur",
+  description: "Dussur we turn your idea into software solution",
+  icons: {
+    icon: "/images/fav-icon.png",
+  },
 };
 
 export default async function RootLayout({

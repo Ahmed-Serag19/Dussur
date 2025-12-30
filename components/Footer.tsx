@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="flex justify-center items-center gap-10">
           <h2 className="text-2xl font-bold text-foreground">
-            {locale === "ar" ? "دُسر" : "Dusser"}
+            {locale === "ar" ? "دُسر" : "Dussur"}
           </h2>
           <p className="text-muted-foreground pt-2 text-center sm:text-left">
             {locale === "ar"
@@ -22,13 +22,13 @@ export function Footer() {
             <p className="text-muted-foreground text-sm text-center sm:text-left">
               {locale === "ar"
                 ? `  دُسر جميع الحقوق محفوظة.©${new Date().getFullYear()}`
-                : `© ${new Date().getFullYear()} Dusser. All rights reserved.`}
+                : `© ${new Date().getFullYear()} Dussur. All rights reserved.`}
             </p>
             <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground">
                 {locale === "ar"
-                  ? "صُنع مع ❤️ بواسطة دُسر"
-                  : "Made with ❤️ by Dusser"}
+                  ? "صُنع بواسطة دُسر"
+                  : "Made by Dussur"}
               </span>
             </div>
           </div>

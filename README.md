@@ -1,12 +1,12 @@
-# Dusser Landing Page
+# Dussur Landing Page
 
-Welcome to the **Dusser Landing Page**! This project showcases the landing page for **Dusser**, a company focused on building innovative software solutions. This repository contains all the necessary code and configurations for the landing page, including responsive design, contact form integration, and various sections for displaying company information and services.
+Welcome to the **Dussur Landing Page**! This project showcases the landing page for **Dussur**, a company focused on building innovative software solutions. This repository contains all the necessary code and configurations for the landing page, including responsive design, contact form integration, and various sections for displaying company information and services.
 
 ## Features
 
 - **Hero Section**: An impactful hero section to introduce the company and its core values.
 - **About Us Section**: A detailed section explaining the company's mission and vision.
-- **Services Section**: A section to highlight the services offered by Dusser.
+- **Services Section**: A section to highlight the services offered by Dussur.
 - **Contact Form**: Integrated contact form powered by [EmailJS](https://www.emailjs.com/) to allow visitors to get in touch.
 - **Responsive Layout**: The page adapts seamlessly for both desktop and mobile devices.
 - **Multilingual Support**: The page supports both English and Arabic, with automatic text direction adjustment (LTR/RTL).
@@ -24,8 +24,8 @@ Ensure you have **Node.js** (version 16 or higher) installed on your machine. Yo
 ### Step 1: Clone the repository
 
 ```bash
-git clone https://github.com/your-username/dusser-landing-page.git
-cd dusser-landing-page
+git clone https://github.com/your-username/dussur-landing-page.git
+cd dussur-landing-page
 Step 2: Install dependencies
 Install the required dependencies using npm or yarn:
 
