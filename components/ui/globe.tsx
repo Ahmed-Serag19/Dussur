@@ -176,10 +176,8 @@ export function Globe({ globeConfig, data }: WorldProps) {
   useEffect(() => {
     try {
       if (!globeRef.current) {
-        console.log("Initializing ThreeGlobe...");
         globeRef.current = new ThreeGlobe();
         setIsInitialized(true);
-        console.log("ThreeGlobe initialized successfully");
       }
     } catch (error) {
       console.error("Error initializing ThreeGlobe:", error);
@@ -191,7 +189,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
   useEffect(() => {
     if (globeRef.current && isInitialized && !hasError) {
       try {
-        console.log("Building globe data...");
         _buildData();
         _buildMaterial();
       } catch (error) {
@@ -216,7 +213,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
       globeMaterial.emissive = new Color(globeConfig.emissive);
       globeMaterial.emissiveIntensity = globeConfig.emissiveIntensity || 0.1;
       globeMaterial.shininess = globeConfig.shininess || 0.9;
-      console.log("Material built successfully");
     } catch (error) {
       console.error("Error building material:", error);
       setHasError(true);
@@ -225,7 +221,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const _buildData = () => {
     try {
-      console.log("Original data length:", data.length);
 
       // Enhanced data validation - ensure data exists and is an array
       if (!data || !Array.isArray(data) || data.length === 0) {
@@ -244,7 +239,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
         return validateArc(arc, index);
       });
 
-      console.log("Valid data length:", validData.length);
 
       if (validData.length === 0) {
         console.warn("No valid data points found after validation");
@@ -302,7 +296,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
         });
       }
 
-      console.log("Total points created:", points.length);
 
       // Additional validation on points before filtering
       const validPoints = points.filter((point) => {
@@ -316,7 +309,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
         return isValid;
       });
 
-      console.log("Valid points after filtering:", validPoints.length);
 
       const filteredPoints = validPoints.filter(
         (v, i, a) =>
@@ -327,7 +319,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
           ) === i
       );
 
-      console.log("Filtered points length:", filteredPoints.length);
 
       if (filteredPoints.length === 0) {
         console.warn("No valid points after deduplication");
@@ -345,7 +336,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
   useEffect(() => {
     if (globeRef.current && globeData && isInitialized && !hasError) {
       try {
-        console.log("Setting up globe with countries data...");
 
         // Validate countries data before using it
         if (
@@ -395,7 +385,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
     }
 
     try {
-      console.log("Starting animation...");
 
       // Comprehensive data validation before BufferGeometry operations
       if (!data || !Array.isArray(data) || data.length === 0) {
@@ -418,7 +407,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
         return;
       }
 
-      console.log("Setting up arcs with", validData.length, "valid arcs");
 
       // Safety wrapper for arc accessors to prevent NaN propagation
       const safeGetNumber = (
@@ -464,7 +452,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
         .arcDashGap(15)
         .arcDashAnimateTime(() => defaultProps.arcTime);
 
-      console.log("Setting up points...");
 
       // Validate globeData before setting points
       if (!globeData || globeData.length === 0) {
@@ -498,7 +485,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
         .pointAltitude(0.0)
         .pointRadius(2);
 
-      console.log("Setting up rings...");
       globeRef.current
         .ringsData([])
         .ringColor((e: any) => (t: any) => e.color(t))
@@ -508,7 +494,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
           (defaultProps.arcTime * defaultProps.arcLength) / defaultProps.rings
         );
 
-      console.log("Animation setup complete");
     } catch (error) {
       console.error("Error starting animation:", error);
       setHasError(true);
@@ -516,7 +501,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
   };
 
   if (hasError) {
-    console.log("Globe component has error, rendering fallback");
     return (
       <div className="flex items-center justify-center h-full w-full">
         <div className="text-center text-gray-500">
@@ -528,11 +512,9 @@ export function Globe({ globeConfig, data }: WorldProps) {
   }
 
   if (!globeRef.current || !isInitialized) {
-    console.log("Globe not ready, rendering null");
     return null;
   }
 
-  console.log("Rendering globe primitive");
   return <primitive object={globeRef.current} />;
 }
 
@@ -544,7 +526,6 @@ export function WebGLRendererConfig() {
       gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       gl.setSize(size.width, size.height);
       gl.setClearColor(0x000000, 0);
-      console.log("WebGL renderer configured successfully");
     } catch (error) {
       console.error("Error configuring WebGL renderer:", error);
     }
