@@ -185,7 +185,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       console.error("Error initializing ThreeGlobe:", error);
       setHasError(true);
     }
-  }, []);
+  }, []); // Intentionally empty to run only once on mount
 
   // Build data and materials after initialization
   useEffect(() => {
@@ -199,6 +199,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
         setHasError(true);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInitialized, data, hasError]);
 
   const _buildMaterial = () => {
@@ -384,6 +385,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
         setHasError(true);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [globeData, isInitialized, hasError]);
 
   const startAnimation = () => {

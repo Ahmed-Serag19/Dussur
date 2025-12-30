@@ -1,6 +1,9 @@
-import HeroSection from "@/components/HeroSection";
 import dynamic from "next/dynamic";
 import { useLocale } from "next-intl";
+
+const HeroSection = dynamic(() => import("@/components/HeroSection"), {
+  ssr: true, 
+});
 
 // Lazy load below-the-fold components
 const AboutUs = dynamic(() => import("@/components/AboutUs"));
