@@ -140,3 +140,34 @@
 [dir="ltr"] .carousel {
   direction: ltr;
 }
+
+/* Arabic text rendering fixes for iOS Safari */
+[dir="rtl"] {
+  font-variant-ligatures: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: "liga" 1, "calt" 1;
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+/* Ensure Arabic text in typewriter effect renders correctly */
+[dir="rtl"] span[style*="direction: rtl"] {
+  display: inline !important;
+  unicode-bidi: bidi-override;
+  font-variant-ligatures: normal;
+  text-rendering: optimizeLegibility;
+  font-family: var(--font-ibm-plex-arabic), 'IBM Plex Sans Arabic', sans-serif !important;
+}
+
+/* iOS Safari specific fix for Arabic font rendering in typewriter */
+@supports (-webkit-touch-callout: none) {
+  [dir="rtl"] span[style*="direction: rtl"],
+  [dir="rtl"] span[style*="font-family"] {
+    font-family: var(--font-ibm-plex-arabic), 'IBM Plex Sans Arabic', sans-serif !important;
+    -webkit-font-feature-settings: "liga" 1, "calt" 1 !important;
+    font-feature-settings: "liga" 1, "calt" 1 !important;
+    font-variant-ligatures: normal !important;
+    text-rendering: optimizeLegibility !important;
+  }
+}

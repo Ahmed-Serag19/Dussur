@@ -4,6 +4,12 @@ import { cn } from "@/lib/utils";
 import { m, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
 
+// Helper function to detect Arabic text
+const isArabic = (text: string): boolean => {
+  const arabicRegex = /[\u0600-\u06FF]/;
+  return arabicRegex.test(text);
+};
+
 export const TypewriterEffect = ({
   words,
   className,
@@ -16,11 +22,16 @@ export const TypewriterEffect = ({
   className?: string;
   cursorClassName?: string;
 }) => {
-  // split text inside of words into array of characters
+  // Check if any word contains Arabic text
+  const hasArabic = words.some((word) => isArabic(word.text));
+  
+  // For Arabic text, keep words intact; for non-Arabic, split into characters
   const wordsArray = words.map((word) => {
+    const isWordArabic = isArabic(word.text);
     return {
       ...word,
-      text: word.text.split(""),
+      text: isWordArabic ? [word.text] : word.text.split(""),
+      isArabic: isWordArabic,
     };
   });
 
@@ -46,22 +57,58 @@ export const TypewriterEffect = ({
 
   const renderWords = () => {
     return (
-      <m.div ref={scope} className="inline">
+      <m.div
+        ref={scope}
+        className="inline"
+        style={{
+          fontVariantLigatures: hasArabic ? "normal" : "none",
+          textRendering: "optimizeLegibility",
+          WebkitFontSmoothing: "antialiased",
+          MozOsxFontSmoothing: "grayscale",
+          WebkitFontFeatureSettings: hasArabic ? '"liga" 1, "calt" 1' : "normal",
+          fontFeatureSettings: hasArabic ? '"liga" 1, "calt" 1' : "normal",
+        }}
+      >
         {wordsArray.map((word, idx) => {
           return (
             <div key={`word-${idx}`} className="inline-block">
-              {word.text.map((char, index) => (
+              {word.isArabic ? (
+                // For Arabic, render the whole word to preserve connections
                 <m.span
                   initial={{}}
-                  key={`char-${index}`}
+                  key={`word-${idx}`}
                   className={cn(
-                    `dark:text-white text-black opacity-0 hidden`,
+                    `dark:text-white text-black opacity-0 hidden font-sans`,
                     word.className
                   )}
+                  style={{
+                    display: "inline",
+                    unicodeBidi: "bidi-override",
+                    direction: "rtl",
+                    fontFamily: "var(--font-ibm-plex-arabic), 'IBM Plex Sans Arabic', sans-serif",
+                    fontVariantLigatures: "normal",
+                    textRendering: "optimizeLegibility",
+                    WebkitFontSmoothing: "antialiased",
+                    MozOsxFontSmoothing: "grayscale",
+                  }}
                 >
-                  {char}
+                  {word.text[0]}
                 </m.span>
-              ))}
+              ) : (
+                // For non-Arabic, split into characters
+                word.text.map((char, index) => (
+                  <m.span
+                    initial={{}}
+                    key={`char-${index}`}
+                    className={cn(
+                      `dark:text-white text-black opacity-0 hidden`,
+                      word.className
+                    )}
+                  >
+                    {char}
+                  </m.span>
+                ))
+              )}
               &nbsp;
             </div>
           );
@@ -72,9 +119,16 @@ export const TypewriterEffect = ({
   return (
     <div
       className={cn(
-        "text-base sm:text-xl md:text-3xl lg:text-5xl font-bold text-center",
+        "text-base sm:text-xl md:text-3xl lg:text-5xl font-bold text-center font-sans",
         className
       )}
+      style={{
+        fontFamily: hasArabic ? "var(--font-ibm-plex-arabic), 'IBM Plex Sans Arabic', sans-serif" : undefined,
+        fontVariantLigatures: hasArabic ? "normal" : "none",
+        textRendering: "optimizeLegibility",
+        WebkitFontSmoothing: "antialiased",
+        MozOsxFontSmoothing: "grayscale",
+      }}
     >
       {renderWords()}
       <m.span
@@ -110,27 +164,69 @@ export const TypewriterEffectSmooth = ({
   className?: string;
   cursorClassName?: string;
 }) => {
-  // split text inside of words into array of characters
+  // Check if any word contains Arabic text
+  const hasArabic = words.some((word) => isArabic(word.text));
+  
+  // For Arabic text, keep words intact; for non-Arabic, split into characters
   const wordsArray = words.map((word) => {
+    const isWordArabic = isArabic(word.text);
     return {
       ...word,
-      text: word.text.split(""),
+      text: isWordArabic ? [word.text] : word.text.split(""),
+      isArabic: isWordArabic,
     };
   });
+  
   const renderWords = () => {
     return (
-      <div>
+      <div
+        style={{
+          fontFamily: hasArabic ? "var(--font-ibm-plex-arabic), 'IBM Plex Sans Arabic', sans-serif" : undefined,
+          fontVariantLigatures: "normal",
+          textRendering: "optimizeLegibility",
+          WebkitFontSmoothing: "antialiased",
+          MozOsxFontSmoothing: "grayscale",
+          WebkitFontFeatureSettings: '"liga" 1, "calt" 1',
+          fontFeatureSettings: '"liga" 1, "calt" 1',
+        }}
+      >
         {wordsArray.map((word, idx) => {
           return (
             <div key={`word-${idx}`} className="inline-block">
-              {word.text.map((char, index) => (
+              {word.isArabic ? (
+                // For Arabic, render the whole word to preserve connections
                 <span
-                  key={`char-${index}`}
-                  className={cn(`dark:text-white text-black `, word.className)}
+                  className={cn(
+                    `dark:text-white text-black font-sans`,
+                    word.className
+                  )}
+                  style={{
+                    display: "inline",
+                    unicodeBidi: "bidi-override",
+                    direction: "rtl",
+                    fontFamily: "var(--font-ibm-plex-arabic), 'IBM Plex Sans Arabic', sans-serif",
+                    fontVariantLigatures: "normal",
+                    textRendering: "optimizeLegibility",
+                    WebkitFontSmoothing: "antialiased",
+                    MozOsxFontSmoothing: "grayscale",
+                  }}
                 >
-                  {char}
+                  {word.text[0]}
                 </span>
-              ))}
+              ) : (
+                // For non-Arabic, split into characters
+                word.text.map((char, index) => (
+                  <span
+                    key={`char-${index}`}
+                    className={cn(
+                      `dark:text-white text-black`,
+                      word.className
+                    )}
+                  >
+                    {char}
+                  </span>
+                ))
+              )}
               &nbsp;
             </div>
           );
@@ -156,9 +252,16 @@ export const TypewriterEffectSmooth = ({
         }}
       >
         <div
-          className="text-md sm:text-lg md:text-xl lg:text:3xl xl:text-5xl font-bold"
+          className="text-md sm:text-lg md:text-xl lg:text:3xl xl:text-5xl font-bold font-sans"
           style={{
             whiteSpace: "nowrap",
+            fontFamily: hasArabic ? "var(--font-ibm-plex-arabic), 'IBM Plex Sans Arabic', sans-serif" : undefined,
+            fontVariantLigatures: hasArabic ? "normal" : "none",
+            textRendering: "optimizeLegibility",
+            WebkitFontSmoothing: "antialiased",
+            MozOsxFontSmoothing: "grayscale",
+            WebkitFontFeatureSettings: hasArabic ? '"liga" 1, "calt" 1' : "normal",
+            fontFeatureSettings: hasArabic ? '"liga" 1, "calt" 1' : "normal",
           }}
         >
           {renderWords()}{" "}
