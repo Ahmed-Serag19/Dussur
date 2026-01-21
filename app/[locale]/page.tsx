@@ -6,6 +6,11 @@ const HeroSection = dynamic(() => import("@/components/HeroSection"), {
 });
 
 // Lazy load below-the-fold components
+const ProjectsSection = dynamic(() =>
+  import("@/components/ProjectsSection").then((mod) => ({
+    default: mod.ProjectsSection,
+  }))
+);
 const AboutUs = dynamic(() => import("@/components/AboutUs"));
 const ServicesSection = dynamic(() =>
   import("@/components/ServicesSection").then((mod) => ({
@@ -21,6 +26,7 @@ export default function Home() {
     <>
       <div className="w-full h-fit overflow-x-hidden" dir={dir}>
         <HeroSection />
+        <ProjectsSection />
         <AboutUs />
         <ServicesSection />
         <ContactSection />

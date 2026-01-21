@@ -28,5 +28,8 @@
   "message": "Message",
   "message_placeholder": "Your message",
   "message_sent_success": "Message sent successfully!",
-  "message_sent_error": "Failed to send message. Please try again."
+  "message_sent_error": "Failed to send message. Please try again.",
+  "our_projects": "Our Projects",
+  "projects_description": "Discover our innovative solutions and digital products that transform businesses.",
+  "visit_project": "Visit Project"
 }

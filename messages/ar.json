@@ -28,5 +28,8 @@
   "message": "الرسالة",
   "message_placeholder": "اكتب رسالتك",
   "message_sent_success": "تم إرسال الرسالة بنجاح!",
-  "message_sent_error": "فشل إرسال الرسالة. يرجى المحاولة مرة أخرى."
+  "message_sent_error": "فشل إرسال الرسالة. يرجى المحاولة مرة أخرى.",
+  "our_projects": "مشاريعنا",
+  "projects_description": "اكتشف حلولنا المبتكرة والمنتجات الرقمية التي تحول الأعمال.",
+  "visit_project": "زيارة المشروع"
 }
